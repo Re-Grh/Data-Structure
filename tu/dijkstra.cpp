@@ -11,28 +11,28 @@ struct matrix_graph
 	int n, e; 
 	int mat[maxlen][maxlen];
 };
-typedef struct matrix_graph juzhen; /*ÁÚ½Ó¾ØÕó*/
+typedef struct matrix_graph juzhen; /*é‚»æ¥çŸ©é˜µ*/
 
-void cre1(juzhen  &G) /*´´½¨ÁÚ½Ó¾ØÕó*/
+void cre1(juzhen  &G) /*åˆ›å»ºé‚»æ¥çŸ©é˜µ*/
 {
 	FILE* fstream;
 	fstream = fopen("2.txt", "r+");
 	int i, j, x, y,w;
-	cout << "ÊäÈë¶¥µãÊı¼°±ßÊı" << endl;
+	cout << "è¾“å…¥é¡¶ç‚¹æ•°åŠè¾¹æ•°" << endl;
 	fscanf(fstream, "%d %d", &G.n, &G.e);
-	cout << "ÊäÈë¶¥µãĞÅÏ¢" << endl;
+	cout << "è¾“å…¥é¡¶ç‚¹ä¿¡æ¯" << endl;
 	for (i = 1; i<=G.n; i++)
 	for (j = 1; j <=G.n; j++)
 	{
 		G.mat[i][j] = maxint;
 	}
-	cout << "ÊäÈë±ßÉÏÁ½¶¥µãµÄĞòºÅ¼°ÆäÈ¨Öµ" << endl;
+	cout << "è¾“å…¥è¾¹ä¸Šä¸¤é¡¶ç‚¹çš„åºå·åŠå…¶æƒå€¼" << endl;
 	for (i = 0; i<G.e; i++)
 	{
 		fscanf(fstream, "%d %d %d", &x, &y,&w);
 		G.mat[x][y] = w;
 	}
-	cout << "ÁÚ½Ó¾ØÕó£º" << endl;
+	cout << "é‚»æ¥çŸ©é˜µï¼š" << endl;
 	for (i = 1; i<=G.n; i++)
 	{
 		for (j = 1; j<=G.n; j++)
@@ -79,7 +79,7 @@ void Dijkstra(juzhen G, int v,int c)
 			}
 		}
 	}
-	cout << "×î¶ÌÂ·¾¶³¤¶È    ×î¶ÌÂ·¾¶" << endl;
+	cout << "æœ€çŸ­è·¯å¾„é•¿åº¦    æœ€çŸ­è·¯å¾„" << endl;
 	if (c == 1)
 	{
 		for (i = 1; i <= G.n; i++)
@@ -146,23 +146,23 @@ int main()
 	cre1(G);
 	while (tep)
 	{
-		printf("×î¶ÌÂ·¾¶Ëã·¨ÊµÏÖÈçÏÂ \n");
-		printf("1¡ª¡ªDijkstraËã·¨Êä³öÔ´µãµ½ÆäËû¶¥µãµÄ×î¶ÌÂ·¾¶\n");
-		printf("2¡ª¡ªFloyd-WarshallËã·¨Êä³öÈÎÒâÁ½¸ö¶¥µã¼äµÄ×î¶ÌÂ·¾¶\n");
-		printf("3¡ª¡ªDijkstraËã·¨Êä³öÆäËû¶¥µãµ½Ä¿±êÖÕµãµÄ×î¶ÌÂ·¾¶\n");
-		printf("4¡ª¡ªFloyd-WarshallËã·¨Êä³öÄ³¶Ô¶¥µã×î¶ÌÂ·¾¶\n");
-		printf("6¡ª¡ªÍË³ö³ÌĞò\n");
-		printf("ÇëÊäÈë·şÎñÑ¡Ïî£¨1-6£©:");
+		printf("æœ€çŸ­è·¯å¾„ç®—æ³•å®ç°å¦‚ä¸‹ \n");
+		printf("1â€”â€”Dijkstraç®—æ³•è¾“å‡ºæºç‚¹åˆ°å…¶ä»–é¡¶ç‚¹çš„æœ€çŸ­è·¯å¾„\n");
+		printf("2â€”â€”Floyd-Warshallç®—æ³•è¾“å‡ºä»»æ„ä¸¤ä¸ªé¡¶ç‚¹é—´çš„æœ€çŸ­è·¯å¾„\n");
+		printf("3â€”â€”Dijkstraç®—æ³•è¾“å‡ºå…¶ä»–é¡¶ç‚¹åˆ°ç›®æ ‡ç»ˆç‚¹çš„æœ€çŸ­è·¯å¾„\n");
+		printf("4â€”â€”Floyd-Warshallç®—æ³•è¾“å‡ºæŸå¯¹é¡¶ç‚¹æœ€çŸ­è·¯å¾„\n");
+		printf("6â€”â€”é€€å‡ºç¨‹åº\n");
+		printf("è¯·è¾“å…¥æœåŠ¡é€‰é¡¹ï¼ˆ1-6ï¼‰:");
 		cin >> a;
 		switch (a)
 		{
 
 		case 1:
 			system("cls");
-			cout << "ÇëÊäÈëÔ´µã£º";
+			cout << "è¯·è¾“å…¥æºç‚¹ï¼š";
 			cin >> v;
 			Dijkstra(G, v,1);
-			printf("ÊÇ·ñ¼ÌĞø£¿£¨1.YES  2£¬NO  £©£º");
+			printf("æ˜¯å¦ç»§ç»­ï¼Ÿï¼ˆ1.YES  2ï¼ŒNO  ï¼‰ï¼š");
 			cin >> c;
 			getchar();
 			if (c == 1)tep = 1;
@@ -173,21 +173,21 @@ int main()
 		case 2:
 			system("cls");
 			Floyd(G);
-			cout << "×î¶Ì¾àÀë¾ØÕó£º" << endl;
+			cout << "æœ€çŸ­è·ç¦»çŸ©é˜µï¼š" << endl;
 			for (i = 1; i <= G.n; i++)
 			{
 				for (j = 1; j <= G.n; j++)
 					cout << D1[i][j] << " ";
 				cout << endl;
 			}
-			cout << "×î¶ÌÂ·¾¶¾ØÕó£º" << endl;
+			cout << "æœ€çŸ­è·¯å¾„çŸ©é˜µï¼š" << endl;
 			for (i = 1; i <= G.n; i++)
 			{
 				for (j = 1; j <= G.n; j++)
 					cout << P1[i][j] << " ";
 				cout << endl;
 			}
-			cout << "×î¶ÌÂ·¾¶³¤¶È    ×î¶ÌÂ·¾¶" << endl;
+			cout << "æœ€çŸ­è·¯å¾„é•¿åº¦    æœ€çŸ­è·¯å¾„" << endl;
 			for (i = 1; i <= G.n; i++)
 			{
 				for (j = 1; j <= G.n; j++)
@@ -206,7 +206,7 @@ int main()
 					}
 				}
 			}
-			printf("ÊÇ·ñ¼ÌĞø£¿£¨1.YES  2£¬NO £©£º");
+			printf("æ˜¯å¦ç»§ç»­ï¼Ÿï¼ˆ1.YES  2ï¼ŒNO ï¼‰ï¼š");
 			cin >> c;
 			getchar();
 			if (c == 1)tep = 1;
@@ -216,7 +216,7 @@ int main()
 			break;
 		case 3:
 			system("cls");
-			cout << "ÇëÊäÈëÖÕµã£º";
+			cout << "è¯·è¾“å…¥ç»ˆç‚¹ï¼š";
 			cin >> v;
 			g.e = G.e, g.n = G.n;
 			for (i = 1; i <= G.n; i++)
@@ -225,7 +225,7 @@ int main()
 					g.mat[i][j] = G.mat[j][i];
 			}
 			Dijkstra(g, v,2);
-			printf("\nÊÇ·ñ¼ÌĞø£¿£¨1.YES  2£¬NO £©£º");
+			printf("\næ˜¯å¦ç»§ç»­ï¼Ÿï¼ˆ1.YES  2ï¼ŒNO ï¼‰ï¼š");
 			cin >> c;
 			getchar();
 			if (c == 1)tep = 1;
@@ -236,10 +236,10 @@ int main()
 		case 4:
 			system("cls");
 			Floyd(G);
-			cout << "ÊäÈëÈÎÒâÁ½¸ö¶¥µã£º ";
+			cout << "è¾“å…¥ä»»æ„ä¸¤ä¸ªé¡¶ç‚¹ï¼š ";
 			cin >> i >> j;
-			cout << "¶¥µã" << i << " -> " << j << "    ";
-			cout << "×î¶ÌÂ·¾¶³¤¶È    ×î¶ÌÂ·¾¶" << endl;
+			cout << "é¡¶ç‚¹" << i << " -> " << j << "    ";
+			cout << "æœ€çŸ­è·¯å¾„é•¿åº¦    æœ€çŸ­è·¯å¾„" << endl;
 			cout << D1[i][j] << "   ";
 			k = P1[i][j];
 			cout << j << " <- ";
@@ -249,8 +249,8 @@ int main()
 			}
 			cout << i;
 			cout << endl;
-			cout << "¶¥µã" << j << " -> " << i << "    ";
-			cout << "×î¶ÌÂ·¾¶³¤¶È    ×î¶ÌÂ·¾¶" << endl;
+			cout << "é¡¶ç‚¹" << j << " -> " << i << "    ";
+			cout << "æœ€çŸ­è·¯å¾„é•¿åº¦    æœ€çŸ­è·¯å¾„" << endl;
 			cout << D1[j][i] << "   ";
 			k = P1[j][i];
 			cout << i << " <- ";
@@ -260,7 +260,7 @@ int main()
 			}
 			cout << j;
 			cout << endl;
-			printf("\nÊÇ·ñ¼ÌĞø£¿£¨1.YES  2£¬NO £©£º");
+			printf("\næ˜¯å¦ç»§ç»­ï¼Ÿï¼ˆ1.YES  2ï¼ŒNO ï¼‰ï¼š");
 			cin >> c;
 			getchar();
 			if (c == 1)tep = 1;
@@ -274,12 +274,12 @@ int main()
 			system("cls");
 			break;
 		case 6:
-			printf("Ğ»Ğ»Ê¹ÓÃ£¡");
+			printf("è°¢è°¢ä½¿ç”¨ï¼");
 			tep = 0;
 			break;
 		default:
 			system("cls");
-			printf("Ñ¡Ôñ´íÎó£¡\n");
+			printf("é€‰æ‹©é”™è¯¯ï¼\n");
 		}
 	}
 
