@@ -13,7 +13,7 @@ struct matrix_graph
 	int n, e;
 	int mat[maxlen][maxlen];
 };
-typedef struct matrix_graph juzhen; /*ÁÚ½Ó¾ØÕó*/
+typedef struct matrix_graph juzhen; /*é‚»æ¥çŸ©é˜µ*/
 struct edge{
 	int f, l, w;
 };
@@ -26,7 +26,7 @@ bool cmp(const edge &a,const edge &b)
 {
 	return a.w < b.w;
 }
-void cre1(juzhen  &G, int n) /*´´½¨ÁÚ½Ó¾ØÕó*/
+void cre1(juzhen  &G, int n) /*åˆ›å»ºé‚»æ¥çŸ©é˜µ*/
 {
 	FILE* fstream;
 	if (n == 1)
@@ -34,22 +34,22 @@ void cre1(juzhen  &G, int n) /*´´½¨ÁÚ½Ó¾ØÕó*/
 	else
 		fstream = fopen("1.txt", "r+");
 	int i, j, x, y, w;
-	cout << "ÊäÈë¶¥µãÊı¼°±ßÊı" << endl;
+	cout << "è¾“å…¥é¡¶ç‚¹æ•°åŠè¾¹æ•°" << endl;
 	fscanf(fstream, "%d %d", &G.n, &G.e);
-	cout << "ÊäÈë¶¥µãĞÅÏ¢" << endl;
+	cout << "è¾“å…¥é¡¶ç‚¹ä¿¡æ¯" << endl;
 	for (i = 1; i <= G.n; i++)
 	for (j = 1; j <= G.n; j++)
 	{
 		G.mat[i][j] = MAX;
 	}
-	cout << "ÊäÈë±ßÉÏÁ½¶¥µãµÄĞòºÅ¼°ÆäÈ¨Öµ" << endl;
+	cout << "è¾“å…¥è¾¹ä¸Šä¸¤é¡¶ç‚¹çš„åºå·åŠå…¶æƒå€¼" << endl;
 	for (i = 0; i<G.e; i++)
 	{
 		fscanf(fstream, "%d %d %d", &x, &y, &w);
 		G.mat[x][y] = w;
 		G.mat[y][x] = w;
 	}
-	cout << "ÁÚ½Ó¾ØÕó£º" << endl;
+	cout << "é‚»æ¥çŸ©é˜µï¼š" << endl;
 	for (i = 1; i <= G.n; i++)
 	{
 		for (j = 1; j <= G.n; j++)
@@ -66,10 +66,10 @@ void cre2(Kruscal  &G, int n)
 	else
 		fstream = fopen("1.txt", "r+");
 	int i;
-	cout << "ÊäÈë¶¥µãÊı¼°±ßÊı" << endl;
+	cout << "è¾“å…¥é¡¶ç‚¹æ•°åŠè¾¹æ•°" << endl;
 	fscanf(fstream, "%d %d", &G.n, &G.e);
-	cout << "ÊäÈë¶¥µãĞÅÏ¢" << endl;
-	cout << "ÊäÈë±ßÉÏÁ½¶¥µãµÄĞòºÅ¼°ÆäÈ¨Öµ" << endl;
+	cout << "è¾“å…¥é¡¶ç‚¹ä¿¡æ¯" << endl;
+	cout << "è¾“å…¥è¾¹ä¸Šä¸¤é¡¶ç‚¹çš„åºå·åŠå…¶æƒå€¼" << endl;
 	for (i = 0; i<G.e; i++)
 	{
 		fscanf(fstream, "%d %d %d", &G.E[i].f, &G.E[i].l, &G.E[i].w);
@@ -160,17 +160,17 @@ int main()
 {
 	juzhen G,G1;
 	cre1(G, 1);
-	cout << "Éú³ÉÊ÷µÄ±ßÈçÏÂ: " << endl;
+	cout << "ç”Ÿæˆæ ‘çš„è¾¹å¦‚ä¸‹: " << endl;
 	prim(1, G);
 	Kruscal g,g1;
 	cre2(g, 1);
-	cout << "Éú³ÉÊ÷µÄ±ßÈçÏÂ: " << endl;
+	cout << "ç”Ÿæˆæ ‘çš„è¾¹å¦‚ä¸‹: " << endl;
 	kruscal(g);
 	cre1(G1, 2);
-	cout << "Éú³ÉÊ÷µÄ±ßÈçÏÂ: " << endl;
+	cout << "ç”Ÿæˆæ ‘çš„è¾¹å¦‚ä¸‹: " << endl;
 	prim(1, G1);
 	cre2(g1, 2);
-	cout << "Éú³ÉÊ÷µÄ±ßÈçÏÂ: " << endl;
+	cout << "ç”Ÿæˆæ ‘çš„è¾¹å¦‚ä¸‹: " << endl;
 	kruscal(g1);
 	return 0;
 }
